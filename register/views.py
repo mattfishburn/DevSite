@@ -41,6 +41,8 @@ def NewEmailRequestDone(request):
         newRequest = EmailAddressRegistrationRequest(EmailAddress=emailAddress)
 
         newRequest.save()
+
+    #todo: use a url parser here
     baseUrl = request.build_absolute_uri()[:-6] +'confirm/'
     EmailConfirmation(emailAddress, baseUrl + newRequest.ExternalKey)
     return HttpResponse(template.render({'address':emailAddress.Address}, request))
