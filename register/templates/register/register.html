@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Register your email address</title>
+  </head>
+  <body>
+    Please enter your email address to register.
+    <form action="submit" method="post">
+      {% csrf_token %}
+      <input type="text" name="EmailAddress" maxlength="100" />
+      <input type="submit" value="Register." />
+    </form>
+  </body>
+</html>
